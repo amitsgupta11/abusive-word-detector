@@ -1,14 +1,10 @@
-# 🛡️ GuardNLP — Abusive Word Detection using NLP
-
-> A B.Tech Minor Project demonstrating real-time text classification using Machine Learning and Natural Language Processing.
-
----
+# 🛡️ Abusive Word Detection using NLP
 
 ## 📌 Project Overview
 
 **GuardNLP** is a web-based text classification system that detects whether a given word, phrase, or sentence is **Abusive** or **Not Abusive**. It uses a trained **Logistic Regression** model on **TF-IDF** features, exposed via a **Flask REST API**, and served through a clean, modern frontend.
 
----
+Live Demo : https://abusive-word-detector-17g5.onrender.com
 
 ## 🗂️ Project Structure
 
@@ -161,15 +157,3 @@ You can extend this dataset with more examples to improve accuracy.
 - [ ] Add user feedback loop for continuous learning
 - [ ] Add LSTM/BERT-based deep learning model
 
----
-
-## 👨‍💻 Author
-
-Built as a B.Tech NLP Mini Project.  
-Stack: Python · Flask · scikit-learn · HTML/CSS/JS
-
----
-
-## 📄 License
-
-This project is for educational purposes.
