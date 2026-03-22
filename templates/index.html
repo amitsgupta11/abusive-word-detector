@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GuardNLP — Abusive Content Detector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Animated background grid -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <div class="container">
+
+    <!-- ── Header ── -->
+    <header class="header">
+      <div class="logo-wrap">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" stroke="var(--accent)" stroke-width="1.5"/>
+            <path d="M12 20 L18 26 L28 14" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="20" cy="20" r="4" fill="var(--accent)" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand">GuardNLP</span>
+          <span class="tagline">Abusive Content Detection Engine</span>
+        </div>
+      </div>
+      <div class="header-badge">
+        <span class="dot"></span>
+        <span>Model Active</span>
+      </div>
+    </header>
+
+    <!-- ── Main Card ── -->
+    <main class="card">
+
+      <div class="card-header">
+        <h1 class="card-title">Analyze Text</h1>
+        <p class="card-desc">Enter any word, phrase, or sentence. The model will classify it in real‑time using NLP.</p>
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-group">
+        <label class="input-label" for="textInput">
+          <span class="label-icon">▸</span> Input Text
+        </label>
+        <div class="textarea-wrap">
+          <textarea
+            id="textInput"
+            class="text-input"
+            placeholder="Type or paste text here…"
+            rows="4"
+            spellcheck="false"
+            maxlength="500"
+          ></textarea>
+          <div class="char-counter"><span id="charCount">0</span> / 500</div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button class="btn-analyze" id="analyzeBtn" onclick="analyzeText()">
+          <span class="btn-text">Analyze</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn-clear" onclick="clearAll()">Clear</button>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="result-panel" id="resultPanel">
+
+        <div class="result-divider">
+          <span>Analysis Result</span>
+        </div>
+
+        <!-- Verdict Badge -->
+        <div class="verdict-wrap" id="verdictWrap">
+          <div class="verdict-icon" id="verdictIcon"></div>
+          <div class="verdict-label" id="verdictLabel">—</div>
+        </div>
+
+        <!-- Confidence Bar -->
+        <div class="confidence-section" id="confidenceSection">
+          <div class="conf-row">
+            <span class="conf-tag safe">✔ Safe</span>
+            <div class="conf-bar-wrap">
+              <div class="conf-bar safe-bar" id="safeBar"></div>
+            </div>
+            <span class="conf-pct" id="safeScore">—</span>
+          </div>
+          <div class="conf-row">
+            <span class="conf-tag abusive">⚠ Abusive</span>
+            <div class="conf-bar-wrap">
+              <div class="conf-bar abusive-bar" id="abusiveBar"></div>
+            </div>
+            <span class="conf-pct" id="abusiveScore">—</span>
+          </div>
+        </div>
+
+        <!-- Meta Info -->
+        <div class="meta-row" id="metaRow">
+          <div class="meta-item">
+            <span class="meta-key">Processed as</span>
+            <span class="meta-val" id="processedText">—</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-key">Confidence</span>
+            <span class="meta-val" id="confidenceVal">—</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Error Message -->
+      <div class="error-msg" id="errorMsg"></div>
+
+    </main>
+
+    <!-- ── Info Cards ── -->
+    <section class="info-section">
+      <div class="info-card">
+        <div class="info-icon">🧠</div>
+        <div class="info-title">TF-IDF + Logistic Regression</div>
+        <div class="info-desc">Text is vectorized using TF-IDF with bigrams, then classified by a trained Logistic Regression model.</div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">⚡</div>
+        <div class="info-title">Real-Time Prediction</div>
+        <div class="info-desc">Backend Flask API processes your input instantly and returns a confidence-scored result.</div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🔒</div>
+        <div class="info-title">Privacy First</div>
+        <div class="info-desc">No data is stored. Each request is processed on-the-fly and discarded after prediction.</div>
+      </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="footer">
+      <span>GuardNLP · B.Tech NLP Mini Project · Built with Python, Flask & scikit-learn</span>
+    </footer>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
