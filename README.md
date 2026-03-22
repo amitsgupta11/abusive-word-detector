@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 
-**GuardNLP** is a web-based text classification system that detects whether a given word, phrase, or sentence is **Abusive** or **Not Abusive**. It uses a trained **Logistic Regression** model on **TF-IDF** features, exposed via a **Flask REST API**, and served through a clean, modern frontend.
+**HateScope** is a web-based text classification system that detects whether a given word, phrase, or sentence is **Abusive** or **Not Abusive**. It uses a trained **Logistic Regression** model on **TF-IDF** features, exposed via a **Flask REST API**, and served through a clean, modern frontend.
 
 Live Demo :[https://abusive-word-detector-17g5.onrender.com](https://abusive-word-detector-17g5.onrender.com)
 
